@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Fraunces';
+  src: url('/assets/fonts/Fraunces.woff2') format('woff2');
+  font-weight: 300 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/assets/fonts/PlusJakartaSans.woff2') format('woff2');
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* FitBowl Green + Natural Palette */
+    --background: 0.98 0.005 100;
+    --foreground: 0.18 0.02 150;
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.02 150;
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.02 150;
+
+    /* Primary: vivid green */
+    --primary: 0.59 0.19 145;
+    --primary-foreground: 1 0 0;
+
+    /* Secondary: warm sage/cream */
+    --secondary: 0.94 0.025 110;
+    --secondary-foreground: 0.22 0.03 145;
+
+    --muted: 0.95 0.012 100;
+    --muted-foreground: 0.5 0.02 145;
+
+    /* Accent: warm amber */
+    --accent: 0.88 0.08 80;
+    --accent-foreground: 0.22 0.04 60;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.9 0.015 120;
+    --input: 0.92 0.01 120;
+    --ring: 0.59 0.19 145;
+
+    /* Charts */
+    --chart-1: 0.59 0.19 145;
+    --chart-2: 0.72 0.16 80;
+    --chart-3: 0.65 0.15 200;
+    --chart-4: 0.7 0.18 30;
+    --chart-5: 0.55 0.12 300;
+
+    /* Sidebar */
+    --sidebar: 0.14 0.04 145;
+    --sidebar-foreground: 0.96 0.01 140;
+    --sidebar-primary: 0.65 0.2 145;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.2 0.05 145;
+    --sidebar-accent-foreground: 0.96 0.01 140;
+    --sidebar-border: 0.22 0.04 145;
+    --sidebar-ring: 0.59 0.19 145;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', Georgia, serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Fraunces', Georgia, serif;
+  }
+  .font-sans {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  .breathe-circle {
+    animation: breathe 8s ease-in-out infinite;
+  }
+
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    40% { transform: scale(1.35); opacity: 1; }
+    60% { transform: scale(1.35); opacity: 1; }
+  }
+
+  .shimmer {
+    background: linear-gradient(90deg, oklch(0.95 0.01 120) 25%, oklch(0.88 0.02 110) 50%, oklch(0.95 0.01 120) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  .mesh-bg {
+    background:
+      radial-gradient(ellipse at 20% 50%, oklch(0.92 0.06 145 / 0.25) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, oklch(0.88 0.08 80 / 0.2) 0%, transparent 60%),
+      oklch(0.98 0.005 100);
+  }
+}
